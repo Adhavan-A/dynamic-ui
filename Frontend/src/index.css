@@ -1,0 +1,57 @@
+@import "tailwindcss";
+
+:root{
+  --bg:#0F172A;
+  --purple:#8B5CF6;
+  --cyan:#22D3EE;
+  --grad: linear-gradient(135deg,#8B5CF6 0%,#22D3EE 100%);
+  --text:#F1F5F9;
+  --text-dim:#8B96AC;
+  --border: rgba(255,255,255,.08);
+}
+*{box-sizing:border-box;}
+html,body,#root{height:100%;}
+body{
+  margin:0;
+  background: radial-gradient(1200px 600px at 10% -10%, rgba(139,92,246,.18), transparent 60%),
+              radial-gradient(1000px 500px at 100% 0%, rgba(34,211,238,.14), transparent 55%),
+              var(--bg);
+  color:var(--text);
+  font-family:'Inter',sans-serif;
+}
+h1,h2,h3{font-family:'Space Grotesk',sans-serif;}
+code, pre, .mono{font-family:'JetBrains Mono',monospace;}
+::-webkit-scrollbar{width:10px;height:10px;}
+::-webkit-scrollbar-track{background:transparent;}
+::-webkit-scrollbar-thumb{background:#2b3a5c;border-radius:8px;}
+
+.grad-text{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent;}
+.grad-btn{background:var(--grad);box-shadow:0 8px 24px -8px rgba(139,92,246,.55);}
+.grad-btn:hover{box-shadow:0 12px 30px -8px rgba(34,211,238,.55);}
+.glass{
+  background:rgba(255,255,255,.035);
+  backdrop-filter:blur(18px); -webkit-backdrop-filter:blur(18px);
+  border:1px solid var(--border);
+  border-radius:18px;
+}
+
+@keyframes anim-float{0%,100%{transform:translateY(0);}50%{transform:translateY(-16px);}}
+@keyframes anim-fadein{from{opacity:0;}to{opacity:1;}}
+@keyframes anim-fadeout{from{opacity:1;}to{opacity:0;}}
+@keyframes anim-slidetop{from{transform:translateY(-40px);opacity:0;}to{transform:translateY(0);opacity:1;}}
+@keyframes anim-slidebottom{from{transform:translateY(40px);opacity:0;}to{transform:translateY(0);opacity:1;}}
+@keyframes anim-slideleft{from{transform:translateX(-40px);opacity:0;}to{transform:translateX(0);opacity:1;}}
+@keyframes anim-slideright{from{transform:translateX(40px);opacity:0;}to{transform:translateX(0);opacity:1;}}
+@keyframes anim-scale{from{transform:scale(.6);opacity:0;}to{transform:scale(1);opacity:1;}}
+@keyframes anim-rotate{from{transform:rotate(-180deg);opacity:0;}to{transform:rotate(0);opacity:1;}}
+@keyframes anim-bounce{0%,100%{transform:translateY(0);}30%{transform:translateY(-22px);}50%{transform:translateY(0);}65%{transform:translateY(-10px);}80%{transform:translateY(0);}}
+@keyframes anim-blink{0%,50%{opacity:1;}51%,100%{opacity:0;}}
+
+select{ color-scheme: dark; }
+select option{ background:#000000; color:#FFFFFF; }
+
+.bg-grid{
+  background-image: linear-gradient(rgba(255,255,255,.045) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.045) 1px, transparent 1px);
+  background-size:24px 24px;
+  background-color:rgba(255,255,255,.015);
+}
