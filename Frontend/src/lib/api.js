@@ -1,5 +1,5 @@
 // Use environment variable (Vercel) or fallback to localhost
-const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:8000';
+const API_URL = import.meta.env.VITE_API_URL || 'https://dynamic-ui-ur9r.onrender.com/';
 
 console.log('API_URL:', API_URL); // Debug - console-la theriyum
 
