@@ -70,7 +70,7 @@ app = FastAPI(title="UI Generator API", version="1.0.0", lifespan=lifespan)
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],  # Allow all for local testing
+    allow_origins=["*"],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
@@ -177,16 +177,15 @@ def delete_template(template_id: str, session: Session = Depends(get_session), c
     session.commit()
     return {"success": True, "message": "Deleted"}
 
-# ==================== ADMIN ENDPOINT (SIMPLIFIED) ====================
+# ==================== ADMIN ENDPOINT ====================
 
 @app.get("/admin/view-data")
 def admin_view_data(secret_key: str, session: Session = Depends(get_session)):
-    # Unga personal password (idha yaarukkum solladheenga)
-    ADMIN_PASSWORD = "Adhav@2004" 
+    ADMIN_PASSWORD = "Adhavan_2026"
     
     if secret_key != ADMIN_PASSWORD:
         raise HTTPException(status_code=403, detail="Access Denied!")
-
+    
     all_users = session.exec(select(User)).all()
     all_templates = session.exec(select(Template)).all()
     
@@ -216,8 +215,6 @@ def root():
 @app.get("/health")
 def health_check():
     return {"status": "healthy", "timestamp": datetime.now().isoformat()}
-
-# ==================== RUN SERVER ====================
 
 if __name__ == "__main__":
     import uvicorn
